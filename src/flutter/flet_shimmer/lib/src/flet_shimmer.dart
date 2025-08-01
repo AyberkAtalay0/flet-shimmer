@@ -43,15 +43,27 @@ class FletShimmerControl extends StatelessWidget {
 
     Widget child = Container(width: width, height: height, color: baseColor);
 
-    Widget shimmer = Shimmer.fromColors(
-      baseColor: baseColor!,
-      highlightColor: highlightColor!,
-      child: child,
-      direction: direction,
-      period: Duration(milliseconds: periodMs),
-      enabled: enabled,
-      loop: loop,
-    );
+    Widget shimmer;
+    if (loop != null) {
+      shimmer = Shimmer.fromColors(
+        baseColor: baseColor!,
+        highlightColor: highlightColor!,
+        child: child,
+        direction: direction,
+        period: Duration(milliseconds: periodMs),
+        enabled: enabled,
+        loop: loop,
+      );
+    } else {
+      shimmer = Shimmer.fromColors(
+        baseColor: baseColor!,
+        highlightColor: highlightColor!,
+        child: child,
+        direction: direction,
+        period: Duration(milliseconds: periodMs),
+        enabled: enabled,
+      );
+    }
 
     if (expand) {
       shimmer = Expanded(child: shimmer);
