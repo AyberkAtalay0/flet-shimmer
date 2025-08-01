@@ -1,11 +1,19 @@
 import 'package:flet/flet.dart';
+
 import 'flet_shimmer.dart';
 
-ControlBuilder getControlBuilder(String type) {
-  switch (type) {
+CreateControlFactory createControl = (CreateControlArgs args) {
+  switch (args.control.type) {
     case "flet_shimmer":
-      return (parent, control) => FletShimmerControl(parent: parent, control: control);
+      return FletShimmerControl(
+        parent: args.parent,
+        control: args.control,
+      );
     default:
       return null;
   }
+};
+
+void ensureInitialized() {
+  // nothing to initialize
 }
