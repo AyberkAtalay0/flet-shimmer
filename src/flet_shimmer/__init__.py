@@ -1,1 +1,1 @@
-from .flet_shimmer import Shimmer
+from .flet_shimmer import FletShimmer

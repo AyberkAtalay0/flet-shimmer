@@ -3,7 +3,7 @@ from flet.core.constrained_control import ConstrainedControl
 from flet.core.control import OptionalNumber
 from flet.core.types import ColorValue
 
-class Shimmer(ConstrainedControl):
+class FletShimmer(ConstrainedControl):
     def __init__(
         self,
         width: OptionalNumber = None,
